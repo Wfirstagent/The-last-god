@@ -1,4 +1,9 @@
-ame: Build Android APK
+name: Build Android APK
+
+on:
+  push:
+    branches: [ main ]
+name: Build Android APK
 
 on:
   push:
