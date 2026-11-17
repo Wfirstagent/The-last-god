@@ -12,7 +12,7 @@ package.domain = org.god
 # (str) Source files to include (let it separate with commas)
 source.include_exts = py,png,jpg,kv,atlas
 
-# (str) Source directory (where the main.py is located)
+# (str) Source directory where the application files are located
 source.dir = .
 
 # (str) Application versioning
@@ -33,3 +33,11 @@ android.permissions = INTERNET
 # (bool) Automatically accept Android SDK license
 android.accept_sdk_license = True
 
+# (int) Target Android API
+android.api = 33
+
+# (int) Minimum API your APK will support
+android.min_api = 21
+
+# (str) Android NDK version to fix C/OpenSSL compilation crash
+android.ndk = 25b
