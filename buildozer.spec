@@ -12,11 +12,13 @@ package.domain = org.god
 # (str) Source files to include (let it separate with commas)
 source.include_exts = py,png,jpg,kv,atlas
 
+# (str) Source directory (where the main.py is located)
+source.dir = .
+
 # (str) Application versioning
 version = 1.0
 
 # (list) Application requirements
-# comma separated e.g. requirements = sqlite3,kivy
 requirements = python3,requests
 
 # (str) Supported orientations
@@ -28,6 +30,6 @@ fullscreen = 0
 # (list) Permissions
 android.permissions = INTERNET
 
-# (bool) Automatically accept Android SDK license to prevent build failures
+# (bool) Automatically accept Android SDK license
 android.accept_sdk_license = True
 
