@@ -3,11 +3,6 @@ name: Build Android APK
 on:
   push:
     branches: [ main ]
-name: Build Android APK
-
-on:
-  push:
-    branches: [ main ]
 
 jobs:
   build:
@@ -38,4 +33,3 @@ jobs:
       with:
         name: package
         path: bin/*.apk
-
