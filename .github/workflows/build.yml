@@ -17,10 +17,11 @@ jobs:
 
     - name: Install Dependencies & Buildozer
       run: |
-        sudo apt-get update
+        sudo apt-get update || true
         sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf automake libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libsqlite3-dev build-essential libssl-dev libffi-dev gettext libltdl-dev
         pip install --upgrade pip
         pip install Cython==0.29.36
+        pip install "sh>=1.10,<2.0"
         pip install --upgrade buildozer
         pip install python-for-android==2024.01.21
 
