@@ -39,8 +39,8 @@ android.api = 33
 # (int) Minimum API your APK will support
 android.min_api = 21
 
-# (str) Android NDK version
-android.ndk = 25b
+# (str) Android NDK version - NDK 23b is the gold standard for fixing OpenSSL compilation crashes
+android.ndk = 23b
 
-# (int) Log level (0 = error, 1 = info, 2 = debug with full traceback)
+# (int) Log level
 log_level = 2
