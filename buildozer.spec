@@ -12,5 +12,4 @@ android.permissions = INTERNET
 android.accept_sdk_license = True
 android.api = 33
 android.min_api = 21
-android.ndk = 23b
 log_level = 2
