@@ -18,8 +18,8 @@ source.dir = .
 # (str) Application versioning
 version = 1.0
 
-# (list) Application requirements (Pinned to stable Python 3.11 to fix C compilation crash)
-requirements = python3==3.11,requests
+# (list) Application requirements
+requirements = python3,requests
 
 # (str) Supported orientations
 orientation = portrait
@@ -41,3 +41,6 @@ android.min_api = 21
 
 # (str) Android NDK version
 android.ndk = 25b
+
+# (int) Log level (0 = error, 1 = info, 2 = debug with full traceback)
+log_level = 2
