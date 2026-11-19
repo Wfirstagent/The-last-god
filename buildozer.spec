@@ -42,5 +42,10 @@ android.min_api = 21
 # (str) Android NDK version
 android.ndk = 28c
 
+# (str) Pin python-for-android to the version installed in the workflow.
+# Without this, Buildozer can clone a newer p4a revision, which may select
+# an incompatible Python recipe/toolchain.
+p4a.branch = v2024.01.21
+
 # (int) Log level
 log_level = 2
