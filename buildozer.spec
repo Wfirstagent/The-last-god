@@ -40,7 +40,7 @@ android.api = 33
 android.min_api = 21
 
 # (str) Android NDK version
-android.ndk = 23b
+android.ndk = 28c
 
 # (int) Log level
 log_level = 2
