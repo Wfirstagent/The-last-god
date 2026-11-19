@@ -1,6 +1,7 @@
 name: Build Android APK
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
 
@@ -8,22 +9,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
-    - name: Install Dependencies & Buildozer
+    - name: Install system dependencies
       run: |
         sudo apt-get update || true
         sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf automake libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libsqlite3-dev build-essential libssl-dev libffi-dev gettext libltdl-dev
-        pip install --upgrade pip
-        pip install Cython==0.29.36
-        pip install "sh>=1.10,<2.0"
-        pip install --upgrade buildozer
-        pip install python-for-android==2024.01.21
+
+    - name: Install matched Buildozer and python-for-android toolchain
+      run: |
+        python -m pip install --upgrade "pip<24.1" "setuptools<70" wheel
+        python -m pip install "Cython==0.29.36" "sh>=1.10,<2.0" "buildozer==1.5.0" "python-for-android==2024.01.21"
+
+    - name: Clear stale Buildozer cache
+      run: |
+        rm -rf ~/.buildozer .buildozer
 
     - name: Build APK with Buildozer
       run: |

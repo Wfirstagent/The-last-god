@@ -18,7 +18,7 @@ source.dir = .
 # (str) Application versioning
 version = 1.0
 
-# (list) Application requirements (Clean and compatible)
+# (list) Application requirements
 requirements = python3,requests
 
 # (str) Supported orientations
@@ -38,6 +38,9 @@ android.api = 33
 
 # (int) Minimum API your APK will support
 android.min_api = 21
+
+# (str) Android NDK version
+android.ndk = 23b
 
 # (int) Log level
 log_level = 2
