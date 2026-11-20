@@ -4,7 +4,7 @@
 title = CLAUDE CODE
 
 # (str) Package name
-package.name = claudecode
+package.name = claude_code
 
 # (str) Package domain (needed for android packaging)
 package.domain = org.god
@@ -40,7 +40,10 @@ android.api = 33
 android.min_api = 21
 
 # (str) Android NDK version
-android.ndk = 28c
+android.ndk = 25b
+
+# (str) Pin python-for-android to the compatible branch
+p4a.branch = v2024.01.21
 
 # (int) Log level
 log_level = 2
