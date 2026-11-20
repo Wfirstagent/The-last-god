@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -19,11 +19,12 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
+        cache: 'pip'
 
     - name: Install system dependencies
       run: |
-        sudo apt-get update || true
-        sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf automake libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 liblzma-dev libsqlite3-dev build-essential libssl-dev libffi-dev gettext libltdl-dev
+        sudo apt-get update
+        sudo apt-get install -y git zip unzip openjdk-17-jdk autoconf automake libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 liblzma-dev libsqlite3-dev build-essential libssl-dev libffi-dev gettext libltdl-dev cmake g++
 
     - name: Install Buildozer and python-for-android
       run: |
@@ -36,13 +37,18 @@ jobs:
 
     - name: Build APK with Buildozer
       env:
+        ANDROID_HOME: ""
+        ANDROID_SDK_ROOT: ""
+        ANDROID_NDK_HOME: ""
         ANDROIDSDK: ""
         ANDROIDNDK: ""
       run: |
         buildozer -v android debug
 
     - name: Upload APK artifact
+      if: success()
       uses: actions/upload-artifact@v4
       with:
-        name: package
+        name: android-apk
         path: bin/*.apk
+        if-no-files-found: error
